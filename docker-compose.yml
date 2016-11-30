@@ -35,9 +35,6 @@ services:
       - db2
       - app1
     image: nginx:latest
-    ports:
-      - "80:80"
-      - "443:443"
     restart: always
 
 volumes:
