@@ -1,0 +1,3 @@
+[submodule "sm-app"]
+	path = sm-app
+	url = https://github.com/mn-estatistica-consultoria/SurveyMania.git

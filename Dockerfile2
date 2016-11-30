@@ -1,0 +1,19 @@
+# DOCKER-VERSION 0.10.0
+
+FROM ubuntu:latest
+
+# make sure apt is up to date
+RUN apt-get update -y && \
+    apt-get install -y nodejs npm git git-core
+
+ADD start.sh /tmp/
+
+RUN chmod +x /tmp/start.sh
+
+CMD ./tmp/start.sh
+
+EXPOSE 1337
+
+VOLUME /tmp
+
+CMD ["npm", "start"]
