@@ -29,7 +29,7 @@ services:
       - mongo
     ports:
       - "1337:1337"
-      
+
   web:
     depends_on:
       - app1
@@ -40,3 +40,5 @@ services:
 
 volumes:
   db_data:
+    driver: local
+    
