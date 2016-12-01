@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  db1:
+  postgres:
     image: postgres:9.6.1
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -9,9 +9,8 @@ services:
     environment:
       POSTGRESS_PASSWORD: db1pwd
       POSTGRESS_USER: db1usr
-      POSTGRES_DB: db1db
 
-  db2:
+  mongo:
     image: mongo:3.0.14
     volumes:
       - db_data:/var/lib/mongo/data
@@ -22,7 +21,6 @@ services:
     environment:
       MONGODB_PASS: db2pwd
       MONGODB_USER: db2usr
-      MONGODB_DATABASE: db2db
 
   app1:
     build: .
@@ -31,8 +29,8 @@ services:
 
   web:
     depends_on:
-      - db1
-      - db2
+      - postgres
+      - mongo
       - app1
     image: nginx:latest
     restart: always
