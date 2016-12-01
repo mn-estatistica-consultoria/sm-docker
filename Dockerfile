@@ -1,4 +1,5 @@
-FROM node:4.2.3
+# FROM node:4.2.3
+FROM node:alpine
 
 MAINTAINER Marcio Nicolau <contato@mnestatistica.com>
 
