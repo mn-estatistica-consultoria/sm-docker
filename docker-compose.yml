@@ -24,15 +24,18 @@ services:
 
   app1:
     build: .
-    ports:
-      - "1337:1337"
-
-  web:
     depends_on:
       - postgres
       - mongo
+    ports:
+      - "1337:1337"
+      
+  web:
+    depends_on:
       - app1
     image: nginx:latest
+    ports:
+      - "80:1337"
     restart: always
 
 volumes:
